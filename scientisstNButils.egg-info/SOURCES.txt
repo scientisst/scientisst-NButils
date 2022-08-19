@@ -1,0 +1,9 @@
+README.md
+setup.py
+scientisstNButils/__init__.py
+scientisstNButils/createIndexTables.py
+scientisstNButils.egg-info/PKG-INFO
+scientisstNButils.egg-info/SOURCES.txt
+scientisstNButils.egg-info/dependency_links.txt
+scientisstNButils.egg-info/not-zip-safe
+scientisstNButils.egg-info/top_level.txt

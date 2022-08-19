@@ -1,9 +1,0 @@
-README.md
-setup.py
-scientisst-NButils/__init__.py
-scientisst-NButils/createIndexTables.py
-scientisst_NButils.egg-info/PKG-INFO
-scientisst_NButils.egg-info/SOURCES.txt
-scientisst_NButils.egg-info/dependency_links.txt
-scientisst_NButils.egg-info/not-zip-safe
-scientisst_NButils.egg-info/top_level.txt
