@@ -1,6 +1,6 @@
 from setuptools import setup
 
-VERSION = "0.0.2"
+VERSION = "0.0.3"
 DESCRIPTION = "ScientISST-NButils is a package for management of the ScientISST Notebooks repository."
 
 setup(

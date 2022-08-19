@@ -2,6 +2,7 @@ import os
 import json
 import codecs
 import re
+import argparse
 
 
 def remove_html(cell):
@@ -166,3 +167,15 @@ def createIndexTables(scientisst_nb_dir):
 
     createMasterTable(scientisst_nb_dir)
     createChapterTables(scientisst_nb_dir)
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "scientisst_nb_dir", help="Path to the local ScientISST Notebooks repository."
+    )
+    opt = parser.parse_args()
+
+    scientisst_nb_dir = opt.scientisst_nb_dir
+    createIndexTables(scientisst_nb_dir)
