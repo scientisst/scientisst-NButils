@@ -1,0 +1,7 @@
+editjson module
+===============
+
+.. automodule:: editjson
+   :members:
+   :undoc-members:
+   :show-inheritance:
