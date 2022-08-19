@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: scientisst-NButils
+Version: 0.0.1
+Summary: ScientISST-NButils is a package for management of the ScientISST Notebooks repository.
+Home-page: https://github.com/scientisst/scientisst-NButils.git
+Author: ScientISST
+Author-email: developer@scientisst.com
+License: MIT
