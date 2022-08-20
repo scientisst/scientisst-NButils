@@ -20,7 +20,7 @@ $ python3 -m scientisstNButils.createIndexTables [path to local copy of the Scie
 This should create (or update) the MasterTable.md on the root of the repository, as well as the README.md files in each Chapter, with the complete index of all existing notebooks. 
 
 ## Contribution Guide
-This contribution guide provides some guidelines to add or update content to the [ScientISST Notebooks](https://github.com/scientisst/notebooks.git). Further information regarding the initial steps can be found in [this post] (https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/).
+This contribution guide provides some guidelines to add or update content to the [ScientISST Notebooks](https://github.com/scientisst/notebooks.git). Further information regarding the initial steps can be found in [this post](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/).
 
 ### Fork the ScientISST Notebooks repository to your account
 
@@ -63,7 +63,7 @@ git push --delete origin [branch name]
 ```
 
 ### For later use
-Whenever you want to make new changes to the original repository, don't forget to first syn your fork:
+Whenever you want to make new changes to the original repository, don't forget to first sync your fork:
 
 ```bash
 git pull upstream [main branch name]
