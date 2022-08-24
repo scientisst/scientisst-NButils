@@ -1,7 +1,7 @@
-createIndexTables module
+create_index_tables module
 ==========================
 
-.. automodule:: createIndexTables
+.. automodule:: create_index_tables
    :members:
    :undoc-members:
    :show-inheritance:

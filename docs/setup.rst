@@ -1,7 +1,7 @@
-styling module
-==============
+setup module
+============
 
-.. automodule:: styling
+.. automodule:: setup
    :members:
    :undoc-members:
    :show-inheritance:

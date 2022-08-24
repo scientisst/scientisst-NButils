@@ -1,7 +1,0 @@
-readCode module
-===============
-
-.. automodule:: readCode
-   :members:
-   :undoc-members:
-   :show-inheritance:

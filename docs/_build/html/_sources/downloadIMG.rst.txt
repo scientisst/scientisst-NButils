@@ -1,7 +1,0 @@
-downloadIMG module
-==================
-
-.. automodule:: downloadIMG
-   :members:
-   :undoc-members:
-   :show-inheritance:

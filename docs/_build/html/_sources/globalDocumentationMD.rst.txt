@@ -1,7 +1,0 @@
-globalDocumentationMD module
-============================
-
-.. automodule:: globalDocumentationMD
-   :members:
-   :undoc-members:
-   :show-inheritance:
