@@ -1,7 +1,7 @@
 import re
 import os
 
-nb_cells_index = {"tags": 3, "metadata": 4}
+nb_cells_index = {"tags": 2, "metadata": 3}
 
 
 def remove_html(cell):

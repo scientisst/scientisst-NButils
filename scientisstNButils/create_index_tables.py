@@ -193,8 +193,9 @@ def update_courses_tables(scientisst_nb_dir):
             )
 
             try:
+                nb_dir = os.path.join(chapter_dir, row["Title"].strip())
                 nb = codecs.open(
-                    f"{os.path.join(chapter_dir, row['Title'].strip())}.ipynb", "r"
+                    f"{os.path.join(nb_dir, row['Title'].strip())}.ipynb", "r"
                 )
 
                 source = nb.read()
@@ -213,7 +214,9 @@ def update_courses_tables(scientisst_nb_dir):
 
             except Exception as e:
                 print("\n")
-                print(e)
+                print(
+                    f"{e} - check if the title exactly matches the name of the file and directory!"
+                )
 
         create_new_course_md(os.path.join(courses_dir, course), table)
 
@@ -237,6 +240,6 @@ if __name__ == "__main__":
         "scientisst_nb_dir", help="Path to the local ScientISST Notebooks repository."
     )
     opt = parser.parse_args()
-
     scientisst_nb_dir = opt.scientisst_nb_dir
+
     create_index_tables(scientisst_nb_dir)
