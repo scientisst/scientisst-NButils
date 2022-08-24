@@ -4,7 +4,7 @@ import codecs
 import argparse
 import pandas as pd
 
-from get_from_notebook import get_metadata, get_tags, get_colab_link
+from scientisstNButils.get_from_notebook import get_metadata, get_tags, get_colab_link
 
 
 def get_NB_info_from_chapter(md_file, dir, master_table=True):
