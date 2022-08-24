@@ -4,7 +4,7 @@ import codecs
 import argparse
 import pandas as pd
 
-from scientisstNButils.get_from_notebook import get_metadata, get_tags, get_colab_link
+from get_from_notebook import get_metadata, get_tags, get_colab_link
 
 
 def get_NB_info_from_chapter(md_file, dir, master_table=True):
@@ -168,6 +168,7 @@ def update_courses_tables(scientisst_nb_dir):
         for ind in table.index:
 
             row = table.iloc[ind]
+            row = row.apply(lambda x: x.strip())
 
             chapter_index = [
                 ch[:2]
@@ -239,7 +240,8 @@ if __name__ == "__main__":
     parser.add_argument(
         "scientisst_nb_dir", help="Path to the local ScientISST Notebooks repository."
     )
-    opt = parser.parse_args()
-    scientisst_nb_dir = opt.scientisst_nb_dir
+    # opt = parser.parse_args()
+    # scientisst_nb_dir = opt.scientisst_nb_dir
 
+    scientisst_nb_dir = "/Users/anasofiacc/dev/notebooks"
     create_index_tables(scientisst_nb_dir)
