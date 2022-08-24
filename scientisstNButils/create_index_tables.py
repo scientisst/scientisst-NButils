@@ -4,7 +4,7 @@ import codecs
 import argparse
 import pandas as pd
 
-from get_from_notebook import get_metadata, get_tags, get_colab_link
+from scientisstNButils.get_from_notebook import get_metadata, get_tags, get_colab_link
 
 
 def get_NB_info_from_chapter(md_file, dir, master_table=True):
@@ -240,8 +240,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "scientisst_nb_dir", help="Path to the local ScientISST Notebooks repository."
     )
-    # opt = parser.parse_args()
-    # scientisst_nb_dir = opt.scientisst_nb_dir
+    opt = parser.parse_args()
+    scientisst_nb_dir = opt.scientisst_nb_dir
 
-    scientisst_nb_dir = "/Users/anasofiacc/dev/notebooks"
     create_index_tables(scientisst_nb_dir)
