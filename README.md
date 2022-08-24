@@ -6,7 +6,7 @@ scientisstNButils is a package for management of the ScientISST Notebooks reposi
 Installation can be easily done with pip:
 
 ```bash
-$ python3 -m pip install git+https://github.com/scientisst/scientisst-NButils.git
+python3 -m pip install git+https://github.com/scientisst/scientisst-NButils.git
 ```
 
 ## Simple example
@@ -14,7 +14,7 @@ $ python3 -m pip install git+https://github.com/scientisst/scientisst-NButils.gi
 The code below should be run after all changes have been made to the local copy of the ScientISST Notebooks and before commiting changes and making a pull request to the original repository.
 
 ```bash
-$ python3 -m scientisstNButils.createIndexTables [path to local copy of the ScientISST Notebooks repository]
+python3 -m scientisstNButils.createIndexTables [path to local copy of the ScientISST Notebooks repository]
 ```
 
 This should create (or update) the MasterTable.md on the root of the repository, as well as the README.md files in each Chapter, with the complete index of all existing notebooks. 
@@ -27,7 +27,7 @@ This contribution guide provides some guidelines to add or update content to the
 ### Make a local clone and add a remote
 
 ```bash
-$ git remote add upstream https://github.com/scientisst/notebooks.git
+git remote add upstream https://github.com/scientisst/notebooks.git
 ```
 
 ### Create your own branch 
