@@ -1,8 +1,10 @@
 import os
+import re
 import json
 import codecs
 import argparse
 import pandas as pd
+from io import StringIO
 
 from scientisstNButils.get_from_notebook import get_metadata, get_tags, get_colab_link
 
@@ -118,23 +120,24 @@ def create_chapter_tables(scientisst_nb_dir):
 
 
 def create_new_course_md(md_path, index_table):
-    """[Summary]
-    :param [ParamName]: [ParamDescription], defaults to [DefaultParamVal]
-    :type [ParamName]: [ParamType](, optional)
-    ...
-    :raises [ErrorType]: [ErrorDescription]
-    ...
-    :return: [ReturnDescription]
-    :rtype: [ReturnType]
+    """Overwrites a Course Mardown file with previous content and updates index program table
+
+    :param md_path: Complete path to Course Mardown file
+    :type md_path: string
+
+    :param index_table: Updated index program table
+    :type index_table: DataFrame
     """
 
     with open(md_path, "r") as f:
         lines = f.readlines()
 
     lines_strip = [l.strip() if l != "\n" else l for l in lines]
-    program_start = lines_strip.index("## Program")
+    table_start = [
+        i for i, item in enumerate(lines_strip) if re.search("( ?-+ ?\|)+ ?-+", item)
+    ][0]
 
-    content = lines[: program_start + 3]
+    content = lines[: table_start + 1]
 
     with open(md_path, "w") as md_file:
         md_file.write("".join(content))
@@ -144,6 +147,7 @@ def create_new_course_md(md_path, index_table):
 def update_courses_tables(scientisst_nb_dir):
 
     """Goes through every course program and updates the metadata from the corresponding notebooks
+
     :param courses_dir: Path to the '_Courses' folder
     :type courses_dir: string
     """
@@ -157,12 +161,14 @@ def update_courses_tables(scientisst_nb_dir):
         with open(os.path.join(courses_dir, course), "r") as f:
             lines = [l.strip() for l in f.readlines() if l != "\n"]
 
-        table_start = lines.index("## Program") + 1
-        table = pd.read_table(
-            os.path.join(courses_dir, course),
+        table_start = [
+            i for i, item in enumerate(lines) if re.search("( ?-+ ?\|)+ ?-+", item)
+        ][0]
+
+        table = pd.read_csv(
+            StringIO("\n".join(lines[(table_start + 1) :])),
             sep="|",
-            header=table_start,
-            names=lines[table_start].split(" | "),
+            names=lines[table_start - 1].split(" | "),
         )
 
         for ind in table.index:
@@ -206,7 +212,7 @@ def update_courses_tables(scientisst_nb_dir):
                 chapter = os.path.basename(chapter_dir)
 
                 updated_row = [
-                    f" {row['Title'].strip()} ",
+                    f"{row['Title'].strip()} ",
                     f" {last_update} ",
                     f" {chapter} ",
                     f" {get_colab_link(row['Title'].strip(), chapter)} ",
