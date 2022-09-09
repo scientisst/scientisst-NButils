@@ -1,0 +1,2 @@
+[console_scripts]
+links_to_relative = scientisstNButils.update_formating:links_to_relative_cli

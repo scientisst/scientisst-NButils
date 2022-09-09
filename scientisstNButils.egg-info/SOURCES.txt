@@ -1,9 +1,14 @@
 README.md
 setup.py
 scientisstNButils/__init__.py
-scientisstNButils/createIndexTables.py
+scientisstNButils/create_index_tables.py
+scientisstNButils/exceptions.py
+scientisstNButils/get_from_directory.py
+scientisstNButils/get_from_notebook.py
+scientisstNButils/update_formating.py
 scientisstNButils.egg-info/PKG-INFO
 scientisstNButils.egg-info/SOURCES.txt
 scientisstNButils.egg-info/dependency_links.txt
+scientisstNButils.egg-info/entry_points.txt
 scientisstNButils.egg-info/not-zip-safe
 scientisstNButils.egg-info/top_level.txt

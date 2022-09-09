@@ -9,15 +9,19 @@ Installation can be easily done with pip:
 python3 -m pip install git+https://github.com/scientisst/scientisst-NButils.git
 ```
 
-## Simple example
+## Simple examples
 
-The code below should be run after all changes have been made to the local copy of the ScientISST Notebooks and before commiting changes and making a pull request to the original repository.
+**The codes below should be run after all changes have been made to the local copy of the ScientISST Notebooks and before commiting changes and making a pull request to the original repository.**
 
 ```bash
 python3 -m scientisstNButils.create_index_tables [path to local copy of the ScientISST Notebooks repository]
 ```
 
 This should create (or update) the MasterTable.md on the root of the repository, as well as the README.md files in each Chapter, with the complete index of all existing notebooks. 
+
+```bash
+links_to_relative -d [path to local copy of the ScientISST Notebooks repository]
+```
 
 ## Contribution Guide
 This contribution guide provides some guidelines to add or update content to the [ScientISST Notebooks](https://github.com/scientisst/notebooks.git). Further information regarding the initial steps can be found in [this post](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/).
