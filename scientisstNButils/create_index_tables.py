@@ -7,36 +7,31 @@ import pandas as pd
 from io import StringIO
 
 from scientisstNButils.get_from_notebook import get_metadata, get_tags, get_colab_link
+from scientisstNButils.get_from_directory import get_chapters_list, get_nb_folders_list
 
 
-def get_NB_info_from_chapter(md_file, dir, master_table=True):
+def get_NB_info_from_chapter(md_file, path_chapter, master_table=True):
     """Finds notebooks in a directory, collects relevant information from each, and writes it on the MasterTable document.
 
     :param md_file: Markdown file
     :type dir: File I/O
 
-    :param dir: Path to a chapter directory in ScientISST Notebooks
-    :type dir: string
+    :param path_chapter: Path to a chapter directory in ScientISST Notebooks
+    :type path_chapter: string
     """
 
-    nb_folders_list = sorted(
-        [
-            f
-            for f in os.listdir(dir)
-            if (os.path.isdir(os.path.join(dir, f)) and f[0] != "_")
-        ]
-    )
+    nb_folders_list = get_nb_folders_list(path_chapter)
 
     for nb_folder in nb_folders_list:
 
-        path_nb_folder = os.path.join(dir, nb_folder)
+        path_nb_folder = os.path.join(path_chapter, nb_folder)
         f = codecs.open(f"{os.path.join(path_nb_folder, nb_folder)}.ipynb", "r")
         source = f.read()
         nb_content = json.loads(source)
 
         authors, last_update = get_metadata(nb_content["cells"])
         tags = get_tags(nb_content["cells"])
-        chapter = os.path.basename(dir)
+        chapter = os.path.basename(path_chapter)
 
         md_file.write(nb_folder + " | ")
         if master_table:
@@ -62,17 +57,7 @@ def create_master_table(scientisst_nb_dir):
         md_file.write("Notebook | Chapter | Tags | Authors | Last update \n")
         md_file.write("--- | --- | --- | --- | --- \n")
 
-        chapters_list = sorted(
-            [
-                f
-                for f in os.listdir(scientisst_nb_dir)
-                if (
-                    os.path.isdir(os.path.join(scientisst_nb_dir, f))
-                    and f[0] != "_"
-                    and f[1] == "."
-                )
-            ]
-        )
+        chapters_list = get_chapters_list(scientisst_nb_dir)
 
         for chapter in chapters_list:
             get_NB_info_from_chapter(
@@ -89,17 +74,7 @@ def create_chapter_tables(scientisst_nb_dir):
 
     file_name = "README"
 
-    chapters_list = sorted(
-        [
-            f
-            for f in os.listdir(scientisst_nb_dir)
-            if (
-                os.path.isdir(os.path.join(scientisst_nb_dir, f))
-                and f[0] != "_"
-                and f[1] == "."
-            )
-        ]
-    )
+    chapters_list = get_chapters_list(scientisst_nb_dir)
 
     for chapter in chapters_list:
 
