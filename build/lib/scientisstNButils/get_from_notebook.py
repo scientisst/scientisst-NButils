@@ -65,7 +65,7 @@ def get_colab_link(title, chapter):
     title_no_spaces = title.replace(" ", "%20")
     title_no_extension = os.path.splitext(title_no_spaces)[0]
     chapter_no_spaces = chapter.replace(" ", "%20")
-    return f"[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/scientisst/notebooks/blob/master/{chapter_no_spaces}/{title_no_extension}/{title_no_spaces})"
+    return f"[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://githubtocolab.com/scientisst/notebooks/blob/master/{chapter_no_spaces}/{title_no_extension}/{title_no_spaces}.ipynb)"
 
 
 def add_to_resources(url, resources_path):

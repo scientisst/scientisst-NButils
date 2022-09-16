@@ -54,14 +54,14 @@ def create_master_table(scientisst_nb_dir):
         md_file.write(
             "# ScientISST Notebooks \n This table provides an overview of the complete set of notebooks made available in this repository. \n\n ## Detailed Index:  \n"
         )
-        md_file.write("Notebook | Chapter | Tags | Authors | Last update \n")
+        md_file.write("Notebook | Chapter | Tags | Contributors | Last update \n")
         md_file.write("--- | --- | --- | --- | --- \n")
 
         chapters_list = get_chapters_list(scientisst_nb_dir)
 
         for chapter in chapters_list:
             get_NB_info_from_chapter(
-                md_file, dir=os.path.join(scientisst_nb_dir, chapter)
+                md_file, path_chapter=os.path.join(scientisst_nb_dir, chapter)
             )
 
 
@@ -84,12 +84,12 @@ def create_chapter_tables(scientisst_nb_dir):
             md_file.write(
                 f"# {chapter} \n This table provides an overview of the complete set of notebooks made available in this chapter. \n\n ## Detailed Index:  \n"
             )
-            md_file.write("Notebook  | Tags | Authors | Last update \n")
+            md_file.write("Notebook  | Tags |  | Last update \n")
             md_file.write("---  | --- | --- | --- \n")
 
             get_NB_info_from_chapter(
                 md_file,
-                dir=path_chapter,
+                path_chapter=path_chapter,
                 master_table=False,
             )
 
@@ -149,7 +149,7 @@ def update_courses_tables(scientisst_nb_dir):
         for ind in table.index:
 
             row = table.iloc[ind]
-            row = row.apply(lambda x: x.strip())
+            row = row.apply(lambda x: str(x).strip())
 
             chapter_index = [
                 ch[:2]
