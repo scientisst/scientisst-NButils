@@ -84,7 +84,7 @@ def create_chapter_tables(scientisst_nb_dir):
             md_file.write(
                 f"# {chapter} \n This table provides an overview of the complete set of notebooks made available in this chapter. \n\n ## Detailed Index:  \n"
             )
-            md_file.write("Notebook  | Tags | Contributors | Last update \n")
+            md_file.write("Notebook  | Tags |  | Last update \n")
             md_file.write("---  | --- | --- | --- \n")
 
             get_NB_info_from_chapter(
@@ -213,6 +213,19 @@ def create_index_tables(scientisst_nb_dir):
     create_master_table(scientisst_nb_dir)
     create_chapter_tables(scientisst_nb_dir)
     update_courses_tables(scientisst_nb_dir)
+
+
+def create_index_tables_cli():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-d",
+        dest="scientisst_nb_dir",
+        help="Path to the local ScientISST Notebooks repository.",
+    )
+    opt = parser.parse_args()
+    scientisst_nb_dir = opt.scientisst_nb_dir
+
+    create_index_tables(scientisst_nb_dir)
 
 
 if __name__ == "__main__":

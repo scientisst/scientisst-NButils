@@ -1,7 +1,7 @@
 from importlib.metadata import entry_points
 from setuptools import setup
 
-VERSION = "0.2.5"
+VERSION = "0.2.6"
 DESCRIPTION = "ScientISST-NButils is a package for management of the ScientISST Notebooks repository."
 
 setup(
@@ -13,7 +13,8 @@ setup(
     author_email="developer@scientisst.com",
     entry_points={
         "console_scripts": [
-            "links_to_relative=scientisstNButils.update_formating:links_to_relative_cli",
+            "scientisst_links_to_relative=scientisstNButils.update_formating:links_to_relative_cli",
+            "scientisst_index_tables=scientisstNButils.create_index_tables:create_index_tables_cli",
         ]
     },
     license="MIT",

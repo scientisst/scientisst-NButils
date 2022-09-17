@@ -1,6 +1,7 @@
 # ScientISST-NButils
 scientisstNButils is a package for management of the ScientISST Notebooks repository. 
 
+> ⚠️ **WARNING:** Currently, this package is only supported by Unix systems. If you are woking with a Windows OS, follow the **Contribution Guide** below and alert this fact to the reviewers!
 
 ## Installation
 Installation can be easily done with pip:
@@ -11,19 +12,17 @@ python3 -m pip install git+https://github.com/scientisst/scientisst-NButils.git
 
 ## Simple examples
 
-**The codes below should be run after all changes have been made to the local copy of the ScientISST Notebooks and before commiting changes and making a pull request to the original repository.**
+**The examples below should be run after all changes have been made to the local copy of the ScientISST Notebooks and before commiting changes and making a pull request to the original repository.**
 
-- To create (or update) the MasterTable.md on the root of the repository, as well as the README.md files in each Chapter, with the complete index of all existing notebooks:
+- To create (or update) the MasterTable.md on the root of the repository, as well as the README.md files in each Chapter, with the complete index of all existing notebooks _(path -> path to local copy of the ScientISST Notebooks repository)_:
 ```bash
-python3 -m scientisstNButils.create_index_tables [path to local copy of the ScientISST Notebooks repository]
+scientisst_index_tables -d [path]
 ```
 
 - For Notebooks that have absolute paths to images, download images to respective _\_Resources_ directory and replace link:
 ```bash
-links_to_relative -d [path to local copy of the ScientISST Notebooks repository]
+scientisst_links_to_relative -d [path]
 ```
-
-
 
 
 ## Contribution Guide
@@ -31,13 +30,16 @@ This contribution guide provides some guidelines to add or update content to the
 
 ### 1. Fork the ScientISST Notebooks repository to your account
 
+This will only be done once - creating your own copy of the ScientISST Notebooks repository. 
+
 ### 2. Make a local clone and add a remote
 
 ```bash
 git remote add upstream https://github.com/scientisst/notebooks.git
 ```
 
-### 3. Create your own branch 
+### 3. Create a branch
+This is not mandatory, but it's good practice to create a branch for specific alterations you plan to make.
 We suggest naming it with the same ID of the notebook (e.g. A001).
 
 ```bash
@@ -45,7 +47,9 @@ git checkout -b [branch name]
 ```
 
 ### 4. Make and commit changes
-Create or update notebooks and resources at will. Then commit them and push your changes to the remote repository.
+Create or update notebooks and resources at will. Use the temaplate available [here](https://github.com/scientisst/notebooks/tree/master/_Templates/notebook_template) and don't forget to place all resources in the respective _\_Resources_ directory.
+
+Don't forget to commit your changes and push them to the remote repository (this can be done anytime throughout your changes).
 
 ```bash
 git add .
@@ -54,7 +58,7 @@ git push [remote] [branch name]
 ```
 
 ### 5. Opening a Pull Request
-> _GitHub makes this part incredibly easy. Once you push a new branch up to your repository, GitHub will prompt you to create a pull request (I’m assuming you’re using your browser and not the GitHub native apps)._
+Once you have finished your changes, press `Contribute` on your Notebooks fork page (using the GitHub browser).
 
 This will open a revision "issue" with the maintainers of the repository (us), where we'll discuss and approve the changes.
 

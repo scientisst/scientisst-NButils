@@ -215,6 +215,19 @@ def create_index_tables(scientisst_nb_dir):
     update_courses_tables(scientisst_nb_dir)
 
 
+def create_index_tables_cli():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "-d",
+        dest="scientisst_nb_dir",
+        help="Path to the local ScientISST Notebooks repository.",
+    )
+    opt = parser.parse_args()
+    scientisst_nb_dir = opt.scientisst_nb_dir
+
+    create_index_tables(scientisst_nb_dir)
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
