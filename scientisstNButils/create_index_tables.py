@@ -38,7 +38,11 @@ def get_NB_info_from_chapter(md_file, path_chapter, master_table=True):
             md_file.write(chapter[0] + " | ")
         md_file.write(tags + "|")
         md_file.write(authors + "|")
-        md_file.write(last_update + "|" + "\n")
+        if master_table:
+            md_file.write(last_update + "|" + "\n")
+        else:
+            md_file.write(last_update + "|")
+            md_file.write(f" {get_colab_link(nb_folder, chapter)} \n")
 
 
 def create_master_table(scientisst_nb_dir):
@@ -84,8 +88,10 @@ def create_chapter_tables(scientisst_nb_dir):
             md_file.write(
                 f"# {chapter} \n This table provides an overview of the complete set of notebooks made available in this chapter. \n\n ## Detailed Index:  \n"
             )
-            md_file.write("Notebook  | Tags |  | Last update \n")
-            md_file.write("---  | --- | --- | --- \n")
+            md_file.write(
+                "Notebook | Tags | Contributors | Last update | Open Notebook \n"
+            )
+            md_file.write("--- | --- | --- | --- | --- \n")
 
             get_NB_info_from_chapter(
                 md_file,
