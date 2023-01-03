@@ -10,21 +10,6 @@ Installation can be easily done with pip:
 python3 -m pip install git+https://github.com/scientisst/scientisst-NButils.git
 ```
 
-## Simple examples
-
-**The examples below should be run after all changes have been made to the local copy of the ScientISST Notebooks and before commiting changes and making a pull request to the original repository.**
-
-- To create (or update) the MasterTable.md on the root of the repository, as well as the README.md files in each Chapter, with the complete index of all existing notebooks _(path -> path to local copy of the ScientISST Notebooks repository)_:
-```bash
-scientisst_index_tables -d [path]
-```
-
-- For Notebooks that have absolute paths to images, download images to respective _\_Resources_ directory and replace link:
-```bash
-scientisst_links_to_relative -d [path]
-```
-
-
 ## Contribution Guide
 This contribution guide provides some guidelines to add or update content to the [ScientISST Notebooks](https://github.com/scientisst/notebooks.git). Further information regarding the initial steps can be found in [this post](https://blog.scottlowe.org/2015/01/27/using-fork-branch-git-workflow/).
 
@@ -57,12 +42,26 @@ git commit -m "[your commit message]"
 git push [remote] [branch name]
 ```
 
-### 5. Opening a Pull Request
+### 5. Use ScientISST-NButils
+
+**The examples below should be run after all changes have been made to the local copy of the ScientISST Notebooks and before commiting changes and making a pull request to the original repository.**
+
+- To create (or update) the MasterTable.md on the root of the repository, as well as the README.md files in each Chapter, with the complete index of all existing notebooks _(path -> path to local copy of the ScientISST Notebooks repository)_:
+```bash
+scientisst_index_tables -d [path]
+```
+
+- For Notebooks that have absolute paths to images, download images to respective _\_Resources_ directory and replace link:
+```bash
+scientisst_links_to_relative -d [path]
+```
+
+### 6. Opening a Pull Request
 Once you have finished your changes, press `Contribute` on your Notebooks fork page (using the GitHub browser).
 
 This will open a revision "issue" with the maintainers of the repository (us), where we'll discuss and approve the changes.
 
-### 6. Cleaning up
+### 7. Cleaning up
 After merging your changes with the original repository, do as follows:
 
 ```bash
@@ -73,7 +72,7 @@ git push origin [main branch name]
 git push --delete origin [branch name]
 ```
 
-### 7. For later use
+### 8. For later use
 Whenever you want to make new changes to the original repository, don't forget to first sync your fork:
 
 ```bash
